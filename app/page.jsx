@@ -5,8 +5,11 @@ import Image from "next/image";
 import dali from "../public/images/persistenceTime.jpg";
 import pinkfloyd from "../public/images/pinkfloyd.jpg";
 import { useEffect } from "react";
+import { useTimerInterval } from "./store";
+import { Timers } from "./Timers";
 
 export default function Home() {
+  useTimerInterval();
   // Demande la permission pour les notifications une seule fois lors du montage du composant
   useEffect(() => {
     if (Notification.permission !== "granted") {
@@ -41,6 +44,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Timers />
     </main>
   );
 }
